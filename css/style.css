@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+}
+.laptop-animation-wrap {
+  background-image: url("../images/bg-pattern.svg");
+  background-color: #0c111d;
+  padding: 250px 0;
+}
+.laptop-animation-wrap:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 300px;
+  opacity: 0.8;
+  background: #9152fe;
+  filter: blur(241.06500244140625px);
+  width: 300px;
+  height: 300px;
+}
+.container {
+  text-align: center;
+  max-width: 1330px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.video-click-button {
+  opacity: 0;
+}
+.mockup {
+  display: inline-block;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  font-size: 0;
+  perspective: 2400px;
+  perspective-origin: 50% 100%;
+  opacity: 0;
+  transition: 500ms opacity;
+}
+.mockup.loaded {
+  opacity: 1;
+}
+.mockup .part .top,
+.mockup .part .bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mockup .part.top {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  transition: transform 6s ease;
+}
+.mockup.closed .part.top {
+  transform: translate3d(0, 0, 0) rotateX(-90deg);
+  transition: transform 6s ease;
+}
+.mockup .part {
+  display: inline-block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+  transition: 900ms;
+}
+.mockup.opened .part .top {
+  transform: translate3d(0, 0, -11px) rotateX(90deg) scale(1, 1);
+  transition: transform cubic-bezier(0.6, -0.28, 0.735, 0.045) ease;
+}
+.mockup .part .top {
+  transform-origin: 50% 0;
+  transform: translate3d(0, 0, -11px) rotateX(90deg);
+  transition: 900ms;
+}
+.mockup img {
+  display: block;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+.mockup .part .cover {
+  position: relative;
+}
+.mockup video {
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  left: 4%;
+  width: 92%;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 1px);
+}
+.mockup .part.bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, 0) rotateX(-90deg);
+}
+.mockup .part .bottom {
+  transform-origin: 50% 0;
+  transform: translate3d(0, 0, 0) rotateX(90deg);
+}
+/* Brand section */
+.brands-wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.brands-wrap h2{
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.logo-wrap{
+display: flex;
+justify-content: space-between;
+margin-top: 35px;
+}
+.logo-image-box{
+   width: 20%;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop-animation</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="laptop-animation-wrap">
+  <div class="container">
+    <div class="brands-wrap">
+      <h2>We've had the privilege of collaborating with some remarkable individuals.</h2>
+      <div class="logo-wrap">
+        <div class="logo-image-box">
+          <img src="./images/starbuck_logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/Rev_Logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/hadsup-logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/Rev_Logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/haptik-logo.svg" alt="">
+        </div>
+      </div>
+      <div class="logo-wrap">
+        <div class="logo-image-box">
+          <img src="./images/starbuck_logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/Rev_Logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/hadsup-logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/Rev_Logo.svg" alt="">
+        </div>
+        <div class="logo-image-box">
+          <img src="./images/haptik-logo.svg" alt="">
+        </div>
+      </div>
+    </div>
+    
+    <div class="mockup mockup-macbook loaded opened" id="myDIV">
+      <div class="part top">
+        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-top.svg" alt="" class="top">
+        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-cover.svg" alt="" class="cover">
+        <video width="500" height="500"  muted autoplay>
+          <source src= "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="part bottom">
+        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-cover.svg" alt="" class="cover">
+        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-bottom.svg" alt="" class="bottom">
+      </div>
+    </div>
+  </div>
+</div>
+  <button class="video-click-button" onclick="myFunction()">Try it</button>
+    <script>
+function myFunction() {
+    var element = document.getElementById("myDIV");
+    element.classList.toggle("closed");
+  }
+
+  var lastScrollTop = 0;
+  window.addEventListener('scroll', function () {
+    var element = document.getElementById("myDIV");
+    var rect = element.getBoundingClientRect();
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      if (scrollTop > lastScrollTop) {
+        element.classList.add("closed");
+      } else {
+        element.classList.remove("closed");
+      }
+    } else {
+      element.classList.remove("closed");
+    }
+    lastScrollTop = scrollTop;
+  });
+    </script>
+</body>
+</html>
