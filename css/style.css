@@ -52,7 +52,12 @@ body{
   top: 0;
   left: 0;
 }
-
+.part.top img {
+    width: 840px;
+}
+.part.bottom img {
+    width: 840px;
+}
 .mockup .part.top {
   transform: translate3d(0, 0, 0) rotateX(0deg);
   transition: transform 6s ease;
@@ -89,7 +94,7 @@ body{
 .mockup video {
   display: block;
   position: absolute;
-  bottom: 0%;
+  bottom: 4%;
   left: 4%;
   width: 92%;
   border-radius: 6px;
@@ -119,7 +124,7 @@ body{
     color: #fff;
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .logo-wrap{
 display: flex;
