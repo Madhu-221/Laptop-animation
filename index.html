@@ -49,9 +49,9 @@
     
     <div class="mockup mockup-macbook loaded opened" id="myDIV">
       <div class="part top">
-        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-top.svg" alt="" class="top">
+        <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-top.svg" alt="" class="top" >
         <img src="https://d1xm195wioio0k.cloudfront.net/images/mockup/macbook-cover.svg" alt="" class="cover">
-        <video  loopwidth="500" height="500"  muted autoplay>
+        <video  loop width="500" height="500"  muted autoplay>
           <source src= "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
         </video>
       </div>
@@ -63,28 +63,53 @@
   </div>
 </div>
   <button class="video-click-button" onclick="myFunction()">Try it</button>
-    <script>
-function myFunction() {
-    var element = document.getElementById("myDIV");
-    element.classList.toggle("closed");
+  <div class="dummy-spacer">
+<h2>Scroll Up</h2>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+
+<script>
+  const laptopAnimation = gsap.timeline({ paused: true });
+  laptopAnimation.to(".mockup .part.top", {
+    rotationX: -90,
+    duration: 10, 
+    ease: "power4.out", 
+  });
+
+  ScrollTrigger.create({
+    animation: laptopAnimation,
+    trigger: "#myDIV",
+    start: "center center",
+    end: "bottom top",
+    scrub: true,
+    onEnterBack: () => {
+      laptopAnimation.reversed(!laptopAnimation.reversed());
+    },
+  });
+
+  const videoElement = document.querySelector("video");
+  const videoDuration = videoElement.duration;
+
+  ScrollTrigger.create({
+    trigger: "#myDIV",
+    start: "top top",
+    end: "bottom bottom",
+    onUpdate: (self) => {
+      const progress = self.progress;
+      const currentTime = progress * videoDuration;
+      videoElement.currentTime = currentTime;
+    },
+    scrub: 0.1,
+  });
+
+  function toggleLaptopAnimation() {
+    laptopAnimation.paused(!laptopAnimation.paused());
   }
 
-  var lastScrollTop = 0;
-  window.addEventListener('scroll', function () {
-    var element = document.getElementById("myDIV");
-    var rect = element.getBoundingClientRect();
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-      if (scrollTop > lastScrollTop) {
-        element.classList.add("closed");
-      } else {
-        element.classList.remove("closed");
-      }
-    } else {
-      element.classList.remove("closed");
-    }
-    lastScrollTop = scrollTop;
-  });
-    </script>
+  const button = document.querySelector(".video-click-button");
+  button.addEventListener("click", toggleLaptopAnimation);
+</script>
+
 </body>
 </html>

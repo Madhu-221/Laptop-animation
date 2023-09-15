@@ -9,7 +9,7 @@ body{
 .laptop-animation-wrap {
   background-image: url("../images/bg-pattern.svg");
   background-color: #0c111d;
-  padding: 250px 0;
+  padding: 250px 0 480px 0;
 }
 .laptop-animation-wrap:before {
   content: "";
@@ -58,30 +58,17 @@ body{
 .part.bottom img {
     width: 840px;
 }
-.mockup .part.top {
-  transform: translate3d(0, 0, 0) rotateX(0deg);
-  transition: transform 6s ease;
-}
-.mockup.closed .part.top {
-  transform: translate3d(0, 0, 0) rotateX(-90deg);
-  transition: transform 6s ease;
-}
 .mockup .part {
   display: inline-block;
   position: relative;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transform-origin: 50% 100%;
-  transition: 900ms;
-}
-.mockup.opened .part .top {
-  transform: translate3d(0, 0, -11px) rotateX(90deg) scale(1, 1);
-  transition: transform cubic-bezier(0.6, -0.28, 0.735, 0.045) ease;
 }
 .mockup .part .top {
   transform-origin: 50% 0;
   transform: translate3d(0, 0, -11px) rotateX(90deg);
-  transition: 900ms;
+  transition: 1200ms;
 }
 .mockup img {
   display: block;
@@ -133,4 +120,14 @@ margin-top: 35px;
 }
 .logo-image-box{
    width: 20%;
+}
+.dummy-spacer{
+  padding: 80px 0;
+}
+.dummy-spacer h2{
+  color: #000;
+  text-align: center;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 600;
 }
